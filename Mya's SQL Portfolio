@@ -1,0 +1,60 @@
+-- SQLite
+select distinct occupation, maritalStatus, passanger as passenger
+from dataset_1
+where passenger = 'Friend(s)'
+or maritalStatus = 'Married Partner'
+order by occupation asc;
+
+select distinct destination
+from
+(
+select *
+from dataset_1 
+union select *
+FROM table_to_union);
+
+select destination , d.time,  ttj.part_of_day
+from dataset_1 d 
+left join table_to_join ttj 
+on d.time  = ttj.time;
+
+select time 
+from dataset_1 d 
+where time like '%A%';
+
+select avg(temperature)
+from dataset_1
+where time ='10AM';
+
+select count(passanger)
+from dataset_1
+where passanger = 'Alone';
+
+select DISTINCT count(temperature)
+FROM dataset_1
+where temperature between 50 and 80;
+
+select * 
+FROM dataset_1 
+LIMIT 5 offset 5;
+
+select count(distinct occupation)
+FROM dataset_1;
+
+select distinct occupation, count(*)
+FROM dataset_1
+group by occupation;
+
+select coupon, count(*)
+from dataset_1
+group by coupon;
+
+select count (passanger)
+from dataset_1
+where passanger = 'Alone'
+and time = '2PM';
+
+
+
+
+
